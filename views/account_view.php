@@ -10,10 +10,10 @@
 </head>
 <body>
 <div class="container">
-    <h1>Welcome</h1>
+    <h1>Create your account</h1>
     <form>
         <div class="input-container">
-            <label for="email"></label><input type="email" id="email" name="email" placeholder="Email address*" required>
+            <label for="username"></label><input type="text" id="username" name="username" placeholder="Username*" required>
         </div>
         <button type="submit">Continue</button>
     </form>
