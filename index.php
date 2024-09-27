@@ -1,3 +1,35 @@
+<?php
+$servername = "localhost";
+$username = "ontkoking12345";
+$password = "15g4Ywx&6";
+$dbname = "Ontkoking123"; // Voeg de naam van je database toe
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} else {
+    echo "Connected successfully<br>";
+}
+
+// Voer de SQL-query uit
+$sql = "SELECT * FROM Users";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Resultaten van elke rij ophalen en weergeven
+    while($row = $result->fetch_assoc()) {
+        echo "User ID: " . $row["User_ID"] . " - Username: " . $row["Username"] . " - Email: " . $row["email"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
