@@ -1,0 +1,48 @@
+/* Achtergrondkleur voor de hele pagina */
+body {
+    background-color: #f0f7f4;
+}
+
+.filters {
+    position: sticky;
+    top: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-right: 2px solid #ccc; /* Scheidingslijn */
+}
+.filter-container {
+    padding-right: 15px; /* Ruimte tussen de filters en de recepten */
+}
+.recipe-container {
+    padding-left: 15px; /* Ruimte tussen de scheidingslijn en de recepten */
+}
+
+/* Receptenkaart stijlen */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Stijl voor de groene knoppen */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Kleuren en randen */
+.text-success {
+    color: #28a745;
+}
+
+.border-success {
+    border-color: #28a745;
+}
