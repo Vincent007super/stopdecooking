@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Welcome</h1>
+    <h1>Login</h1>
     <form method="POST" action="login.php">
         <div class="input-container">
             <label for="email"></label><input type="email" id="email" name="email" placeholder="Email address*" required>
@@ -18,9 +18,8 @@
         <div class="input-container">
             <label for="password"></label><input type="password" id="password" name="password" placeholder="Password*" required>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Continue</button>
     </form>
-
 </div>
 </body>
 </html>
