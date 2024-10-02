@@ -23,4 +23,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Inclusie van de weergave voor het aanmaken van een account
 include 'views/account_view.php';
-?>
+

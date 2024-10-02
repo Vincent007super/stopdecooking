@@ -1,4 +1,5 @@
 <?php
+global $conn;
 session_start();
 include 'config.php'; // de databaseverbinding
 
@@ -31,4 +32,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 include 'views/login_view.php';
-?>
