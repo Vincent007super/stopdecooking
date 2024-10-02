@@ -41,6 +41,14 @@ input[type="email"] {
     font-size: 16px;
     outline: none;
 }
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
 input[type="text"] {
     width: 100%;
     padding: 12px 15px;
