@@ -1,47 +1,48 @@
+/* Achtergrondkleur voor de hele pagina */
 body {
-    background-color: #f8f9fa;
+    background-color: #f0f7f4;
 }
 
-.container {
-    margin-top: 50px;
+.filters {
+    position: sticky;
+    top: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-right: 2px solid #ccc; /* Scheidingslijn */
+}
+.filter-container {
+    padding-right: 15px; /* Ruimte tussen de filters en de recepten */
+}
+.recipe-container {
+    padding-left: 15px; /* Ruimte tussen de scheidingslijn en de recepten */
 }
 
-h3 {
-    color: #5a7452; /* Aardse tint */
-    margin-bottom: 30px;
-}
-
+/* Receptenkaart stijlen */
 .card {
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.2s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.card img {
-    height: 200px; /* Standaard hoogte voor afbeeldingen */
-    object-fit: cover; /* Zorg ervoor dat de afbeelding goed past */
+/* Stijl voor de groene knoppen */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
 }
 
-.card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #3a3a3a; /* Donkere kleur voor de titel */
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
 }
 
-.card-text {
-    color: #6c757d; /* Lichtere tekstkleur */
+/* Kleuren en randen */
+.text-success {
+    color: #28a745;
 }
 
-.footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #5a7452;
-    color: white;
-    margin-top: 30px;
-    border-radius: 10px;
+.border-success {
+    border-color: #28a745;
 }
