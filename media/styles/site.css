@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    --background-color: rgb(222, 222, 176);
+    --title-color: rgb(77, 209, 77);
+    --title-font-family: Poppins;
+    --main-font-family: Verdana;
+    /* --background-color: #f7faf8; */
+
+    /*Colors*/
+    --green: rgb(53, 150, 53);
+}
