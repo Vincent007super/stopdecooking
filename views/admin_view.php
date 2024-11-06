@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -39,7 +39,7 @@
         <!-- Afbeelding upload (optioneel) -->
         <div class="mb-3">
             <label for="afbeelding" class="form-label">Afbeelding (optioneel)</label>
-            <input type="file" class="form-control" id="afbeelding" name="afbeelding">
+            <input type="file" class="form-control" id="afbeelding" name="afbeelding" accept="image/*">
         </div>
 
         <!-- Instructies veld -->
@@ -87,4 +87,4 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
-</html>
+</html>`
