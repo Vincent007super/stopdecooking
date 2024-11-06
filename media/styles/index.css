@@ -1,6 +1,8 @@
 /* Achtergrondkleur voor de hele pagina */
 body {
-    background-color: #f0f7f4;
+    background-color: var(--background-color);
+    color: var(--main-color);
+    font-family: var(--main-font-family);
 }
 
 .filters {
@@ -17,6 +19,32 @@ body {
     padding-left: 15px; /* Ruimte tussen de scheidingslijn en de recepten */
 }
 
+/*header*/
+
+#header_pos {
+    display: flex;
+    flex-direction: row;
+    padding: 1.5vw;
+    justify-content: space-between;
+}
+#home, #account {
+    display: block;
+    width: 2vw !important;
+    height: 2vw;
+}
+
+#img1 {
+    width: 100%;
+    height: 100%;
+}
+
+#account {
+    background-image: url(../images/profile.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* Receptenkaart stijlen */
 .card {
     transition: transform 0.3s, box-shadow 0.3s;
@@ -29,8 +57,8 @@ body {
 
 /* Stijl voor de groene knoppen */
 .btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: var(--green);
+    border-color: var(--green);
 }
 
 .btn-success:hover {
@@ -40,9 +68,63 @@ body {
 
 /* Kleuren en randen */
 .text-success {
-    color: #28a745;
+    color: var(--background-color);
+    font-family: var(--title-font-family);
 }
 
 .border-success {
-    border-color: #28a745;
+    border-color: var(--title-color);
+}
+/* Verwijder het oude logo-beeld */
+#account {
+    background: none; /* Geen achtergrondafbeelding */
+    position: relative;
+    display: inline-block;
+}
+
+.profile-icon {
+    width: 2vw;
+    height: 2vw;
+    background-image: url('../images/profile.png'); /* Vervang dit door het juiste pad naar je profielafbeelding */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+/* Stijl voor de dropdown */
+.dropdown-menu {
+    display: none; /* Verberg het dropdown menu standaard */
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 10;
+    width: 150px; /* Maak het breed genoeg voor tekst */
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    text-align: left;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Toon het dropdown menu wanneer de gebruiker over het account-icoon hovert */
+#account:hover .dropdown-menu {
+    display: block;
 }

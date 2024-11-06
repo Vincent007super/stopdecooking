@@ -19,6 +19,8 @@
             <label for="password"></label><input type="password" id="password" name="password" placeholder="Password*" required>
         </div>
         <button type="submit">Continue</button>
+        <p>Nog geen account? <a href="account.php">Maak er een aan</a>.</p>
+
     </form>
 </div>
 </body>
