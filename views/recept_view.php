@@ -11,7 +11,10 @@
 
 <div class="container mt-5">
     <div class="card shadow-lg border-0 rounded-3">
-        <img src="<?= htmlspecialchars($recept['Afbeelding'] ?? '') ?>" alt="<?= htmlspecialchars($recept['Title'] ?? 'Recept') ?>" class="card-img-top">
+        <!-- Stel de volledige afbeelding URL samen -->
+        <img src="media/uploads/<?= htmlspecialchars($recept['ReceptID']) . '.' . htmlspecialchars($recept['Afbeelding']) ?>" 
+             alt="<?= htmlspecialchars($recept['Title'] ?? 'Recept') ?>" class="card-img-top">
+             
         <div class="card-body">
             <h2 class="card-title text-success"><?= htmlspecialchars($recept['Title'] ?? 'Onbekende titel') ?></h2>
             <p class="card-text">Categorie: <?= htmlspecialchars($recept['category'] ?? 'Geen categorie beschikbaar') ?></p>
