@@ -3,6 +3,9 @@ body {
     background-color: var(--background-color);
     color: var(--main-color);
     font-family: var(--main-font-family);
+    background-color: var(--background-color);
+    color: var(--main-color);
+    font-family: var(--main-font-family);
 }
 
 .filters {
@@ -45,6 +48,32 @@ body {
     background-size: cover;
 }
 
+/*header*/
+
+#header_pos {
+    display: flex;
+    flex-direction: row;
+    padding: 1.5vw;
+    justify-content: space-between;
+}
+#home, #account {
+    display: block;
+    width: 2vw !important;
+    height: 2vw;
+}
+
+#img1 {
+    width: 100%;
+    height: 100%;
+}
+
+#account {
+    background-image: url(../images/profile.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* Receptenkaart stijlen */
 .card {
     transition: transform 0.3s, box-shadow 0.3s;
@@ -59,6 +88,8 @@ body {
 .btn-success {
     background-color: var(--green);
     border-color: var(--green);
+    background-color: var(--green);
+    border-color: var(--green);
 }
 
 .btn-success:hover {
@@ -68,6 +99,8 @@ body {
 
 /* Kleuren en randen */
 .text-success {
+    color: var(--background-color);
+    font-family: var(--title-font-family);
     color: var(--background-color);
     font-family: var(--title-font-family);
 }
