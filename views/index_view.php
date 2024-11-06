@@ -6,32 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biologische Recepten</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
     <link rel="stylesheet" href="media/styles/site.css">
     <link rel="stylesheet" href="media/styles/index.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
     <!--For icons-->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-
-    <style>
-        /* Extra CSS voor de sticky sidebar en scheiding */
-    </style>
 </head>
 
 <body class="bg-light">
 
-    <div id="header_pos">
-        <a href="index.php" id="home">
-            <img src="media/images/home_icon.png" alt="home button" id="img1">
-        </a>
-        <div id="filler"></div>
-        <div id="account">
-            
-        </div>
-    </div>
+
+    <div id="filler"></div>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container-fluid">
-        <a class="navbar-brand text-white" href="index.php">
+        <a class="navbar-brand text-white" id="home" href="index.php">
             <i class="fas fa-home"></i> <!-- Pictogram -->
+            <img src="media/images/home_icon.png" alt="home button" id="img1">
+
             Ontkoken
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +90,7 @@
                                         <p class="card-text">
                                         <small class="text-muted"><?= htmlspecialchars($recept['Tijd']) ?>
                                                 minuten | Moeilijkheid: <?= htmlspecialchars($recept['Difficulty']) ?></small>
-                                    
+
                                         </p>
                                     </div>
                                     <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
