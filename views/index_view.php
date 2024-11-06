@@ -91,8 +91,8 @@
                         <?php foreach ($result as $recept): ?>
                             <div class="col-md-4 mb-4">
                                 <div class="card h-100 shadow-sm rounded-3">
-                                    <img src="<?= htmlspecialchars($recept['Afbeelding']) ?>" alt="Recept afbeelding"
-                                        class="card-img-top rounded-top">
+                                <img src="media/uploads/<?= htmlspecialchars($recept['ReceptID']) . '.' . htmlspecialchars($recept['Afbeelding']) ?>"
+                                 alt="Recept afbeelding" class="card-img-top rounded-top">
                                     <div class="card-body">
                                         <h5 class="card-title text-success"><?= htmlspecialchars($recept['Title']) ?></h5>
                                         <p class="card-text">
