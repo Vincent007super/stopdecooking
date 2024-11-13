@@ -41,32 +41,6 @@
     </div>
 </nav>
 
-<div class="container">
-    <h1 class="text-center">Biologische Recepten</h1>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="filters">
-                <h5>Filter op soort gerecht:</h5>
-                <form method="GET" action="">
-                    <div class="mb-2">
-                        <input type="checkbox" name="category[]" id="category_all" value="all"
-                            <?= empty($selectedCategories) ? 'checked' : '' ?>>
-                        <label for="category_all">Alle Categorieën</label>
-                    </div>
-                    <?php foreach ($categories as $cat): ?>
-                        <div class="mb-2">
-                            <input type="checkbox" name="category[]" id="category_<?= htmlspecialchars($cat) ?>"
-                                   value="<?= htmlspecialchars($cat) ?>" class="form-check-input"
-                                <?= in_array($cat, (array) $selectedCategories) ? 'checked' : '' ?>>
-                            <label for="category_<?= htmlspecialchars($cat) ?>"><?= htmlspecialchars($cat) ?></label>
-                        </div>
-                    <?php endforeach; ?>
-                    <button type="submit" class="btn btn-success w-100 mt-3">Filter</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</nav>
     <div class="container mt-5">
         <h1 class="mb-4 text-center text-success">Biologische Recepten</h1>
         <div class="row">
@@ -103,10 +77,9 @@
                         </div>
                     <?php else: ?>
                         <?php foreach ($result as $recept): ?>
-                            <div class="col-md-4 mb-4">
+                            <div class="col-md-4 mb-4 hypers">
                                 <div class="card h-100 shadow-sm rounded-3">
-                                <img src="media/uploads/<?= htmlspecialchars($recept['ReceptID']) . '.' . htmlspecialchars($recept['Afbeelding']) ?>"
-                                 alt="Recept afbeelding" class="card-img-top rounded-top">
+                                    <div style="background-image: url(media/uploads/<?= htmlspecialchars($recept['ReceptID']) . '.' . htmlspecialchars($recept['Afbeelding']) ?>);" class="hyper_img"></div>
                                     <div class="card-body">
                                         <h5 class="card-title text-success"><?= htmlspecialchars($recept['Title']) ?></h5>
                                         <p class="card-text">

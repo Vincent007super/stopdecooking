@@ -177,6 +177,23 @@ h1, h3 {
     background-size: cover;
 }
 
+/* Cards css*/
+.hyper_img {
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+min-height: 50%;
+max-height: 75%;
+}
+
+.hypers {
+    height: 100%;
+}
+
+.row {
+    height: 375px;
+}
+
 /* Receptenkaart stijlen */
 .card {
     border-radius: 10px;
