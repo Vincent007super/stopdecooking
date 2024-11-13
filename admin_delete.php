@@ -1,6 +1,5 @@
 <?php
-global $conn;
-require 'config.php'; // Laad de databaseconfiguratie
+require 'config.php';
 
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['usertype'] != 1) {
@@ -12,17 +11,17 @@ if (!isset($_SESSION['user_id']) || $_SESSION['usertype'] != 1) {
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Verwijder recept en categorieën als het ID is opgegeven
+// Controleer of een recept-ID is opgegeven
 if (isset($_GET['receptid'])) {
     $receptid = $_GET['receptid'];
 
-    // Verwijder de categorieën van het recept
-    $categoryStmt = $conn->prepare("DELETE FROM Recipe_Categories WHERE ReceptID = :receptid");
-    $categoryStmt->bindParam(':receptid', $receptid);
-    $categoryStmt->execute();
+    // Verwijder eerst de favorieten die verwijzen naar dit recept
+    $stmt = $pdo->prepare("DELETE FROM Favourites WHERE Recipe_ID = :receptid");
+    $stmt->bindParam(':receptid', $receptid);
+    $stmt->execute();
 
-    // Verwijder het recept
-    $stmt = $conn->prepare("DELETE FROM Recipes WHERE ReceptID = :receptid");
+    // Verwijder het recept uit de `Recipes`-tabel
+    $stmt = $pdo->prepare("DELETE FROM Recipes WHERE ReceptID = :receptid");
     $stmt->bindParam(':receptid', $receptid);
 
     if ($stmt->execute()) {
@@ -31,5 +30,10 @@ if (isset($_GET['receptid'])) {
         echo "<div class='alert alert-danger' role='alert'>Er is een fout opgetreden bij het verwijderen van het recept.</div>";
     }
 }
+
+// Haal alle recepten op om te tonen in de view
+$stmt = $pdo->prepare("SELECT * FROM Recipes");
+$stmt->execute();
+$recepten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 include 'views/admin_delete_view.php';

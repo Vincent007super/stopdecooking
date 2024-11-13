@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h1 class="text-center">Verwijder Recept</h1>
+    <h1 class="text-center">Beheer Recepten</h1>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -19,17 +19,24 @@
         </thead>
         <tbody>
         <?php
-        global$conn;
+        // Verbind met de database
+        require 'config.php'; // Zorg ervoor dat je de juiste databaseverbinding hebt
+
         // Verkrijg alle recepten
-        $stmt = $conn->prepare("SELECT ReceptID, Title FROM Recipes");
+        $stmt = $pdo->prepare("SELECT ReceptID, Title FROM Recipes");
         $stmt->execute();
-        $recepten = $stmt->fetchAll();
+        $recepten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($recepten as $recept) {
             echo "<tr>";
             echo "<td>" . htmlspecialchars($recept['ReceptID']) . "</td>";
             echo "<td>" . htmlspecialchars($recept['Title']) . "</td>";
-            echo "<td><a href='admin_delete.php?receptid=" . htmlspecialchars($recept['ReceptID']) . "' class='btn btn-danger' onclick='return confirm(\"Weet je zeker dat je dit recept wilt verwijderen?\");'>Verwijderen</a></td>";
+            echo "<td>
+                    <!-- Verwijderknop -->
+                    <a href='admin_delete.php?receptid=" . htmlspecialchars($recept['ReceptID']) . "' class='btn btn-danger' onclick='return confirm(\"Weet je zeker dat je dit recept wilt verwijderen?\");'>Verwijderen</a>
+                    <!-- Bewerken knop -->
+                    <a href='bewerk_recept.php?receptid=" . htmlspecialchars($recept['ReceptID']) . "' class='btn btn-warning ml-2'>Bewerken</a>
+                  </td>";
             echo "</tr>";
         }
         ?>

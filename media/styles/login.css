@@ -1,109 +1,74 @@
+/* Algemene reset en layout voor de pagina */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
 }
-
+/* Body instellen */
 body {
-    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    color: #495057;
+}
+/* Container voor het loginformulier */
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    padding: 0 10px;
 }
-
-.container {
-    text-align: center;
+/* Het login card-stijl */
+.card {
     background-color: white;
-    padding: 40px;
-    border-radius: 10px;
+    border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 360px;
 }
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.input-container {
-    margin-bottom: 20px;
-}
-
-input[type="email"] {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ccc;
+/* Stijl voor de knoppen en inputs */
+button, .form-control {
     border-radius: 8px;
     font-size: 16px;
-    outline: none;
 }
-input[type="password"] {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+/* Specifieke stijlen voor de inputvelden */
+.form-control {
+    padding: 14px;
+    border: 1px solid #ddd;
     font-size: 16px;
-    outline: none;
 }
-input[type="text"] {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
+/* Focus effect voor de email en wachtwoord velden */
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
 }
-
-input[type="email"]:focus {
-    border-color: #007bff;
-}
-
-button {
-    width: 100%;
-    padding: 12px 15px;
-    background-color: #28a745;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
+/* Hover effect voor de submit button */
 button:hover {
     background-color: #218838;
 }
-
-/* Media query for screens with width of 360px or less */
-@media (max-width: 360px) {
-
-    *{
-        overflow: hidden;
-    }
-    .container {
+/* Linkkleur aanpassen naar groen voor consistentie */
+a.text-success {
+    color: #28a745 !important;
+}
+/* Responsieve stijlen voor kleinere schermen */
+@media (max-width: 576px) {
+    .card {
+        width: 90%;
         padding: 20px;
-        width: 100%;
     }
 
-    h1 {
-        font-size: 22px;
-        margin-bottom: 15px;
-    }
-
-    input[type="email"] {
-        padding: 10px 12px;
+    button, .form-control {
         font-size: 14px;
+        padding: 12px;
     }
-    input[type="text"] {
-        padding: 10px 12px;
-        font-size: 14px;
+}
+/* CSS voor animatie */
+.fade-out {
+    animation: fadeOut 2s forwards;
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
     }
-
-    button {
-        padding: 10px 12px;
-        font-size: 14px;
+    100% {
+        opacity: 0;
     }
 }
