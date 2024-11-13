@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'config.php';
+require 'config.php'; // Laad de databaseconfiguratie
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Haal de invoer op

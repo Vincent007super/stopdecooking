@@ -1,13 +1,15 @@
 <?php
-session_start();
-require 'config.php';
+
+session_start(); // Start de sessie om toegang te krijgen tot $_SESSION
+require 'config.php'; // Laad de databaseconfiguratie
+
 // Controleer of de gebruiker is ingelogd
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: login.php"); // Stuur de gebruiker naar de inlogpagina als ze niet zijn ingelogd
     exit;
 }
 
-$userID = $_SESSION['user_id'];
+$userID = $_SESSION['user_id']; // Haal het gebruikers-ID op
 
 // Functie om te controleren of een recept favoriet is voor deze gebruiker
 function isFavourite($pdo, $userID, $receptID) {
@@ -67,4 +69,7 @@ if (!empty($selectedCategories) && !in_array('all', $selectedCategories)) {
 
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
+// Laad de view voor index
 require 'views/index_view.php';
+?>

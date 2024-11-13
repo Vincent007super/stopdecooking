@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require 'config.php'; // Databaseconfiguratie
 
 // Controleer of er een id is opgegeven in de URL
 if (isset($_GET['id'])) {

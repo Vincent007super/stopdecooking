@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'config.php';
+require 'config.php'; // Laad de databaseconfiguratie
 
 // Controleer of de gebruiker is ingelogd
 if (!isset($_SESSION['user_id'])) {
@@ -20,4 +20,7 @@ if (!$user) {
     echo "Gebruiker niet gevonden.";
     exit;
 }
+
+// Inclusie van de weergave voor accountinformatie
 include 'views/account_info_view.php';
+?>

@@ -1,10 +1,11 @@
 <?php
-session_start();
-require 'config.php';
+session_start(); // Start de sessie
+require 'config.php'; // Laad de databaseconfiguratie
 
-if (!isset($_SESSION['user_id']) || $_SESSION['usertype'] != 1) {
-    header("Location: login.php");
-    exit;
+// Controleer of de gebruiker ingelogd is als admin
+if (!isset($_SESSION['UserType']) || $_SESSION['UserType'] != 1) {
+    header('Location: login.php'); // Verander dit naar de juiste loginpagina
+    exit(); // Zorg ervoor dat de scriptuitvoering stopt na de redirect
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $categories = isset($_POST['categories']) ? $_POST['categories'] : [];
 
     try {
+        // Voeg het recept toe aan de database zonder afbeelding
         $stmt = $pdo->prepare("INSERT INTO Recipes (Title, Difficulty, Tijd, Instructions) VALUES (:title, :difficulty, :tijd, :instructions)");
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':difficulty', $difficulty);
@@ -30,16 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_FILES['afbeelding']) && $_FILES['afbeelding']['error'] == 0) {
                 $targetDir = "media/uploads/";
                 $fileInfo = pathinfo($_FILES["afbeelding"]["name"]);
-                $fileExtension = $fileInfo['extension'];
-                $targetFileName = $recipeId . "." . $fileExtension;
-                $targetFilePath = $targetDir - $targetFileName;
+                $fileExtension = $fileInfo['extension']; // Haal de extensie op
+                $targetFileName = $recipeId . "." . $fileExtension; // Stel de bestandsnaam in op het ID met extensie
+                $targetFilePath = $targetDir . $targetFileName;
 
                 // Verplaats het geüploade bestand naar de juiste locatie
                 if (move_uploaded_file($_FILES["afbeelding"]["tmp_name"], $targetFilePath)) {
-
+                    // Update de extensie in de database in plaats van de volledige bestandsnaam
                     $stmt = $pdo->prepare("UPDATE Recipes SET Afbeelding = :afbeelding WHERE ReceptID = :ReceptID");
-                    $stmt->bindParam(':afbeelding', $targetFileName);
-                    $stmt->bindParam(':ReceptID', $recipeId);
+                    $stmt->bindParam(':afbeelding', $fileExtension);  // Sla alleen de extensie op
+                    $stmt->bindParam(':ReceptID', $recipeId);  // Bind het recept-ID
                     if ($stmt->execute()) {
                         echo "<div class='alert alert-success' role='alert'>Afbeelding succesvol geüpload en database bijgewerkt.</div>";
                     } else {
@@ -49,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "<div class='alert alert-danger' role='alert'>Afbeelding kon niet worden geüpload.</div>";
                 }
             }
-
 
             // Voeg de geselecteerde categorieën toe aan de categorieën tabel
             foreach ($categories as $category) {
@@ -71,4 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-include 'views/admin_view.php';
+include 'views/admin_view.php'; // Laad de admin view
+
+?>

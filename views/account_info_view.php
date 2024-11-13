@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Account Informatie</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Achtergrondkleur consistent met Bootstrap */
+        }
+        .container {
+            margin-top: 20px;
+        }
+        h2 {
+            color: #333; /* Koptekst kleur */
+        }
+    </style>
 </head>
-<body class="bg-light">
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
-    <a class="navbar-brand text-white" href="index.php">Ontkoken</a>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.php">Ontkoken</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

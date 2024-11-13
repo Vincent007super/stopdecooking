@@ -21,17 +21,17 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['toggle_favourite']) && isset($_POST['recept_id'])) {
-        $Recipe_ID = $_POST['recept_id'];
+        $Recipe_ID = $_POST['recept_id']; // Nu met de juiste naam
 
-        echo "Recipe ID: " . htmlspecialchars($Recipe_ID);
+        echo "Recipe ID: " . htmlspecialchars($Recipe_ID); // Debug output
 
         if (isFavourite($pdo, $userID, $Recipe_ID)) {
             // Verwijder favoriet
-            echo "Verwijderen van favoriet";
+            echo "Verwijderen van favoriet"; // Debug output
             $stmt = $pdo->prepare("DELETE FROM Favourites WHERE User_ID = :userID AND Recipe_ID = :RecipeID");
         } else {
             // Voeg favoriet toe
-            echo "Toevoegen van favoriet";
+            echo "Toevoegen van favoriet"; // Debug output
             $stmt = $pdo->prepare("INSERT INTO Favourites (User_ID, Recipe_ID) VALUES (:userID, :RecipeID)");
         }
 
@@ -42,7 +42,7 @@
             echo "Favoriet succesvol gewijzigd."; // Succesbericht
         } else {
             $errorInfo = $stmt->errorInfo();
-            echo "Er is een fout opgetreden bij het wijzigen van de favoriet: " . htmlspecialchars($errorInfo[2]);
+            echo "Er is een fout opgetreden bij het wijzigen van de favoriet: " . htmlspecialchars($errorInfo[2]); // Foutmelding
         }
 
         header("Location: favourites.php");
@@ -57,4 +57,6 @@
     $stmt->execute();
     $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    // Laad de view voor favorieten
     require 'views/favourites_view.php';
+    ?>

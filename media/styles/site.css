@@ -11,22 +11,28 @@
 body {
     background-color: #f8f9fa;
 }
+
 .container {
     margin-top: 50px;
 }
+
 .card {
     transition: transform 0.2s ease-in-out;
 }
+
 .card:hover {
     transform: scale(1.05);
 }
+
 .remove-btn {
     background-color: #dc3545;
     color: white;
 }
+
 .remove-btn:hover {
     background-color: #c82333;
 }
+
 .empty-message {
     margin-top: 50px;
     text-align: center;
@@ -34,19 +40,33 @@ body {
 .favourite-btn {
     background: none;
     border: none;
-    color: #dc3545;
+    color: #dc3545; /* Rood voor zichtbaarheid */
     font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.2s, color 0.2s;
 }
+
 .favourite-btn:hover {
     transform: scale(1.2);
-    color: #ff5a5a;
+    color: #ff5a5a; /* Roodtint bij hover */
 }
+
 .favourite-form {
     display: inline;
 }
+
 .dropdown-menu {
     right: 0;
     left: auto;
+}@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    --background-color: rgb(222, 222, 176);
+    --title-color: rgb(77, 209, 77);
+    --title-font-family: Poppins;
+    --main-font-family: Verdana;
+    /* --background-color: #f7faf8; */
+
+    /*Colors*/
+    --green: rgb(53, 150, 53);
 }

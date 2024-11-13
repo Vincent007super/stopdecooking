@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require 'config.php'; // Laad de databaseconfiguratie
 
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['usertype'] != 1) {
@@ -36,4 +36,5 @@ $stmt = $pdo->prepare("SELECT * FROM Recipes");
 $stmt->execute();
 $recepten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// Laad de view voor het verwijderen van recepten
 include 'views/admin_delete_view.php';
